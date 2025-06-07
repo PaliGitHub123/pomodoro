@@ -1,26 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Pomodoro"/>
+  <header class="palmodoro">Palmodoro</header>
+  <PomodoroTimer/>
+  <StartButton/>
+  <StopButton/>
 </template>
 
 <script>
-import HelloWorld from './components/'
-
+import PomodoroTimer from './components/PomodoroTimer.vue'
+import StartButton from './components/StartButton.vue'
+import StopButton from "@/components/StopButton.vue"
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    PomodoroTimer,
+    StartButton,
+    StopButton
   }
 }
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+.palmodoro{
+  font-size: 50px;
+  color: white;
+  display: flex;
+  justify-content: center;
 }
 </style>
