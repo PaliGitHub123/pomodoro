@@ -13,6 +13,6 @@ export default {
 p{
   color: white;
   margin: 10px;
-  font-size: 100px;
+  font-size: 200px;
 }
 </style>

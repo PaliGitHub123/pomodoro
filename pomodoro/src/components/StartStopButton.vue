@@ -5,15 +5,21 @@ export default {
 </script>
 
 <template>
-<button>Stop Timer</button>
+  <div class="startStop">
+    <font-awesome-icon :icon="['fas', 'circle-play']"/>
+  </div>
+
 </template>
 
 <style scoped>
-button{
+.startStop  {
   border-radius: 10px;
-  background-color: white;
-  color: darkred;
+  color: #4c0101;
   margin: 10px;
-  font-size: 100px;
+  font-size: 200px;
+}
+
+.startStop:hover{
+  color: rgba(76, 1, 1, 0.53);
 }
 </style>

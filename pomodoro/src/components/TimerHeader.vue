@@ -11,5 +11,6 @@ p{
   color: white;
   margin: 10px;
   font-size: 100px;
+  text-align: center;
 }
 </style>

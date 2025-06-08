@@ -19,7 +19,7 @@
 import PomodoroTimer from './components/PomodoroTimer.vue'
 import RestartButton from './components/RestartButton.vue'
 import StartStopButton from "./components/StartStopButton.vue"
-import TimerHeader from "@/components/TimerHeader.vue";
+import TimerHeader from "./components/TimerHeader.vue";
 export default {
   name: 'App',
   components: {
@@ -44,15 +44,17 @@ export default {
 .components-center{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-content: center;
   align-items: center;
   margin: 10px;
+  height: 50vh;
 }
 .left{
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  align-content: center;
 }
 
 .right{
