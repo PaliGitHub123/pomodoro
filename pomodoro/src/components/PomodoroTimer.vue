@@ -1,6 +1,4 @@
 <template>
-  <p>Timer</p>
-  <br>
   <p>25:00</p>
 </template>
 
@@ -14,5 +12,7 @@ export default {
 <style scoped>
 p{
   color: white;
+  margin: 10px;
+  font-size: 100px;
 }
 </style>
