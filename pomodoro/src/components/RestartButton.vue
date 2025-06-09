@@ -1,11 +1,9 @@
-<script >
-export default {
-  name: 'StartButton'
-}
+<script setup>
+let time = "23:00"
 </script>
 
 <template>
-  <div class="restart">
+  <div class="restart" @click="$emit('restart', time)">
     <font-awesome-icon :icon="['fas', 'rotate-right']"/>
   </div>
 

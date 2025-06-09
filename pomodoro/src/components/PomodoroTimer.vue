@@ -1,10 +1,16 @@
 <template>
-  <p>25:00</p>
+  <p>{{time}}</p>
 </template>
 
 <script>
 export default {
-  name: 'PomodoroTimer'
+  name: 'PomodoroTimer',
+  props: {
+    time: {
+      type: Number,
+      required: true
+    }
+  }
 }
 </script>
 

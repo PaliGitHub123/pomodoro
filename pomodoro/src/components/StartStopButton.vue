@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div class="startStop">
+  <div class="startStop" @click="$emit()">
     <font-awesome-icon :icon="['fas', 'circle-play']"/>
   </div>
 

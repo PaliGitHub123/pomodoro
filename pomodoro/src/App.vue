@@ -3,10 +3,10 @@
   <div class="components-center">
       <div class="left">
         <TimerHeader/>
-        <PomodoroTimer/>
+        <PomodoroTimer :time="timerTime"/>
       </div>
       <div class="right">
-        <StartButton/>
+        <RestartButton @restart="setTime"/>
         <StopButton/>
       </div>
     </div>
@@ -23,12 +23,25 @@ import TimerHeader from "./components/TimerHeader.vue";
 export default {
   name: 'App',
   components: {
+    RestartButton,
     PomodoroTimer,
-    StartButton: RestartButton,
     StopButton: StartStopButton,
     TimerHeader
+  },
+  data() {
+    return {
+      timerTime: "25:00"
+    }
+  },
+  methods: {
+    setTime(newTime) {
+      this.timerTime = newTime;
+    }
   }
+
 }
+
+
 </script>
 
 <style scoped>
