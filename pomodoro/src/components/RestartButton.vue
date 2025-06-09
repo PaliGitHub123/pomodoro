@@ -19,7 +19,7 @@ let time = "23:00"
 
 .restart:hover{
   color: rgba(76, 1, 1, 0.53);
-  transition: 300ms ease-in all;
-  transform: rotate(90deg);
+  transition: 700ms ease-in all;
+  transform: rotate(360deg);
 }
 </style>
