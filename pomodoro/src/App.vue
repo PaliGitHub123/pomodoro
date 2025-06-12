@@ -1,4 +1,7 @@
 <template>
+  <div class="tomatoleaves-center">
+    <img src="./assets/tomatoLeaves.png" alt="">
+  </div>
   <header class="palmodoro">Palmodoro</header>
   <div class="components-center">
     <div class="left">
@@ -88,6 +91,14 @@ onMounted(() => {
   align-items: center;
   margin: 10px;
   height: 50vh;
+}
+
+.tomatoleaves-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
 }
 
 .left {
