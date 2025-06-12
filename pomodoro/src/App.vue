@@ -1,6 +1,6 @@
 <template>
   <div class="tomatoleaves-center">
-    <img src="./assets/tomatoLeaves.png" alt="">
+    <img src="./assets/tomatoLeaves.png" alt="" style="width: 10vh; height: 10vh">
   </div>
   <header class="palmodoro">Palmodoro</header>
   <div class="components-center">
@@ -114,5 +114,21 @@ onMounted(() => {
   flex-direction: column;
   justify-content: center;
   align-items: end;
+}
+
+@media (max-width: 768px) {
+  .palmodoro {
+    font-size: 70px; /* Kleinere Größe */
+    margin-top: 10vh;
+  }
+  .components-center{
+    margin-top: 10vh;
+    height: 30vh;
+  }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .palmodoro{
+    font-size: 75px;
+  }
 }
 </style>

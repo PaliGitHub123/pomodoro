@@ -44,4 +44,15 @@ let time = "25:00"
   transform: rotate(360deg);
 }
 
+@media (max-width: 768px) {
+  .restart {
+    font-size: 100px; /* Kleinere Größe */
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .restart {
+    font-size: 75px;
+  }
+}
 </style>

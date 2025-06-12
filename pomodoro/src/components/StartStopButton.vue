@@ -28,6 +28,7 @@ const toggle = () => {
       <font-awesome-icon
           :key="isRunning ? 'pause' : 'play'"
           :icon="isRunning ? ['fas', 'circle-pause'] : ['fas', 'circle-play']"
+          class="button-icon"
       />
     </transition>
   </div>
@@ -58,6 +59,17 @@ const toggle = () => {
 .icon-fade-leave-to {
   opacity: 0;
   transform: rotate(90deg) scale(0.3);
+}
+
+@media (max-width: 768px) {
+  .startStop {
+    font-size: 100px; /* Kleinere Größe */
+  }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .startStop {
+    font-size: 75px;
+  }
 }
 
 </style>
