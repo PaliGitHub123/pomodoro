@@ -1,5 +1,5 @@
 <script setup>
-let time = "23:00"
+let time = "25:00"
 </script>
 
 <template>
