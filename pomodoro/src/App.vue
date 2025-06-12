@@ -10,7 +10,7 @@
     </div>
     <div class="right">
       <RestartButton @restart="resetTimer"/>
-      <StartStopButton :running="isTimerRunning" @start="start25MinuteTimer" @stop="stopTimer"/>
+      <StartStopButton :running="isTimerRunning" @start="startTimer" @stop="stopTimer"/>
     </div>
   </div>
 </template>
@@ -25,37 +25,37 @@ import TimerHeader from "./components/TimerHeader.vue"
 // timer state
 const timerTime = ref("25:00")
 const isTimerRunning = ref(false)
+const remainingSeconds = ref(25 * 60) // Neue Variable für den aktuellen Stand
 let intervalId = null
 
-const start25MinuteTimer = () => {
+const startTimer = () => {
   if (intervalId) return // Schon laufend
-  let totalSeconds = 25 * 60
+
   isTimerRunning.value = true
-  // optional: clear previous interval if needed
-  if (intervalId) clearInterval(intervalId)
 
   intervalId = setInterval(() => {
-    const minutes = Math.floor(totalSeconds / 60)
-    const seconds = totalSeconds % 60
-
-    timerTime.value = `${minutes}:${seconds.toString().padStart(2, '0')}`
-
-    if (totalSeconds <= 0) {
+    if (remainingSeconds.value <= 0) {
       clearInterval(intervalId)
       intervalId = null
-      isTimerRunning.value = true
+      isTimerRunning.value = false
+      return
     }
 
-    totalSeconds--
+    remainingSeconds.value--
+    updateTimerDisplay()
   }, 1000)
 }
 
+const updateTimerDisplay = () => {
+  const minutes = Math.floor(remainingSeconds.value / 60)
+  const seconds = remainingSeconds.value % 60
+  timerTime.value = `${minutes}:${seconds.toString().padStart(2, '0')}`
+}
+
 const resetTimer = () => {
-  if (intervalId) {
-    clearInterval(intervalId)
-    intervalId = null
-  }
-  timerTime.value = "25:00"
+  stopTimer()
+  remainingSeconds.value = 25 * 60
+  updateTimerDisplay()
 }
 
 const stopTimer = () => {
@@ -67,7 +67,7 @@ const stopTimer = () => {
 }
 
 onMounted(() => {
-  stopTimer()
+  resetTimer()
 })
 </script>
 
