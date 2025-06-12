@@ -76,11 +76,12 @@ onMounted(() => {
 }
 
 .palmodoro {
+  margin-top: -10px;
   font-size: 120px;
   color: white;
   display: flex;
   justify-content: center;
-  margin: 50px;
+  margin-bottom: 50px;
 }
 
 .components-center {
@@ -96,7 +97,7 @@ onMounted(() => {
 .tomatoleaves-center {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-content: center;
   align-items: center;
 }
