@@ -1,18 +1,21 @@
 <template>
-  <div class="tomatoleaves-center">
-    <img src="./assets/tomatoLeaves.png" alt="" style="width: 10vh; height: 10vh">
-  </div>
-  <header class="palmodoro">Palmodoro</header>
-  <div class="components-center">
-    <div class="left">
-      <TimerHeader/>
-      <PomodoroTimer :time="timerTime"/>
+  <div class="font">
+    <div class="tomatoleaves-center">
+      <img src="./assets/tomatoLeaves.png" alt="" style="width: 10vh; height: 10vh">
     </div>
-    <div class="right">
-      <RestartButton @restart="resetTimer"/>
-      <StartStopButton :running="isTimerRunning" @start="startTimer" @stop="stopTimer"/>
+    <header class="palmodoro">Palmodoro</header>
+    <div class="components-center">
+      <div class="left">
+        <TimerHeader/>
+        <PomodoroTimer :time="timerTime"/>
+      </div>
+      <div class="right">
+        <RestartButton @restart="resetTimer"/>
+        <StartStopButton :running="isTimerRunning" @start="startTimer" @stop="stopTimer"/>
+      </div>
     </div>
   </div>
+
 </template>
 
 <script setup>
@@ -73,6 +76,11 @@ onMounted(() => {
 
 <style scoped>
 #app {
+}
+
+.font{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .palmodoro {
