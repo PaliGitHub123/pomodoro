@@ -7,7 +7,15 @@
     <div class="components-center">
       <div class="left">
         <TimerHeader/>
+        <div class="incrementUpButtons">
+          <Vertical_IncrementButton @incrementUp="incrementMinutes"/>
+          <Vertical_IncrementButton @incrementUp="incrementSeconds"/>
+        </div>
         <PomodoroTimer :time="timerTime"/>
+        <div class="incrementDownButtons">
+          <Vertical_IncrementButton @incrementUp="decrementSeconds"/>
+          <Vertical_IncrementButton @incrementUp="decrementMinutes"/>
+        </div>
       </div>
       <div class="right">
         <RestartButton @restart="resetTimer"/>
@@ -24,9 +32,10 @@ import PomodoroTimer from './components/PomodoroTimer.vue'
 import RestartButton from './components/RestartButton.vue'
 import StartStopButton from "./components/StartStopButton.vue"
 import TimerHeader from "./components/TimerHeader.vue"
+import Vertical_IncrementButton from "@/components/Vertical_IncrementButton.vue";
 
 // timer state
-const timerTime = ref("25:00")
+const timerTime = ref("")
 const isTimerRunning = ref(false)
 const remainingSeconds = ref(25 * 60) // Neue Variable für den aktuellen Stand
 let intervalId = null
@@ -50,14 +59,15 @@ const startTimer = () => {
 }
 
 const updateTimerDisplay = () => {
-  const minutes = Math.floor(remainingSeconds.value / 60)
-  const seconds = remainingSeconds.value % 60
+  let minutes = Math.floor(remainingSeconds.value/60)
+  let seconds = remainingSeconds.value % 60
   timerTime.value = `${minutes}:${seconds.toString().padStart(2, '0')}`
 }
 
 const resetTimer = () => {
   stopTimer()
   remainingSeconds.value = 25 * 60
+  //remainingMinutes.value = 25
   updateTimerDisplay()
 }
 
@@ -67,6 +77,42 @@ const stopTimer = () => {
     intervalId = null
   }
   isTimerRunning.value = false
+}
+
+const incrementMinutes = () =>{
+  if(isTimerRunning.value === false){
+    if(remainingSeconds.value < 3600){
+      remainingSeconds.value+=60
+    }
+  }
+  updateTimerDisplay()
+}
+
+const incrementSeconds = () =>{
+  if(isTimerRunning.value === false){
+    if(remainingSeconds.value < 3600){
+      remainingSeconds.value+=5
+    }
+  }
+  updateTimerDisplay()
+}
+
+const decrementSeconds = () => {
+  if(isTimerRunning.value === false){
+    if(remainingSeconds.value > 0){
+      remainingSeconds.value-=5
+    }
+  }
+  updateTimerDisplay()
+}
+
+const decrementMinutes = () => {
+  if(isTimerRunning.value === false){
+    if(remainingSeconds.value > 0){
+      remainingSeconds.value-=60
+    }
+  }
+  updateTimerDisplay()
 }
 
 onMounted(() => {
@@ -84,7 +130,7 @@ onMounted(() => {
 }
 
 .palmodoro {
-  margin-top: -10px;
+  margin-top: -20px;
   font-size: 120px;
   color: white;
   display: flex;
@@ -124,19 +170,50 @@ onMounted(() => {
   align-items: end;
 }
 
+.incrementUpButtons{
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  justify-content: space-evenly;
+}
+
+.incrementDownButtons{
+  rotate: 180deg;
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  justify-content: space-evenly;
+}
+
 @media (max-width: 768px) {
   .palmodoro {
-    font-size: 70px; /* Kleinere Größe */
+    font-size: 60px; /* Kleinere Größe */
     margin-top: 10vh;
   }
   .components-center{
-    margin-top: 10vh;
+    margin-top: 6vh;
     height: 30vh;
+  }
+  .incrementUpButtons{
+    gap: 20px;
+  }
+  .incrementDownButtons{
+    gap: 20px;
   }
 }
 @media (orientation: landscape) and (max-height: 500px) {
   .palmodoro{
-    font-size: 75px;
+    font-size: 60px;
+  }
+  .components-center{
+    margin-top: 6vh;
+    height: 30vh;
+  }
+  .incrementUpButtons{
+    gap: 50px;
+  }
+  .incrementDownButtons{
+    gap: 50px;
   }
 }
 </style>

@@ -19,6 +19,7 @@ export default {
 .timer-display {
   color: white;
   margin: 10px;
+  margin-top: -10px;
   font-size: 200px;
 }
 
