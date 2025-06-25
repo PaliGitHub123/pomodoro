@@ -67,7 +67,6 @@ const updateTimerDisplay = () => {
 const resetTimer = () => {
   stopTimer()
   remainingSeconds.value = 25 * 60
-  //remainingMinutes.value = 25
   updateTimerDisplay()
 }
 
@@ -108,7 +107,7 @@ const decrementSeconds = () => {
 
 const decrementMinutes = () => {
   if(isTimerRunning.value === false){
-    if(remainingSeconds.value > 0){
+    if(remainingSeconds.value > 60){
       remainingSeconds.value-=60
     }
   }
