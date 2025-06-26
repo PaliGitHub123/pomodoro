@@ -43,8 +43,21 @@ const toggle = () => {
   font-size: 200px;
 }
 
+.button-icon{
+  cursor: pointer;
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+
+.button-icon:hover{
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
 .startStop:hover{
   color: rgba(76, 1, 1, 0.53);
+  cursor: pointer;
 }
 
 .icon-fade-enter-active,

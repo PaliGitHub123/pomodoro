@@ -4,13 +4,23 @@
 
 <template>
   <div class="incrementButton">
-    <font-awesome-icon :icon="['fas', 'arrow-up']" @click="$emit('incrementUp')"/>
+    <font-awesome-icon
+        :icon="['fas', 'arrow-up']"
+        @click="$emit('incrementUp')"
+        class="hover-grow"
+    />
   </div>
 </template>
 
 <style scoped>
-:hover{
+.hover-grow {
   cursor: pointer;
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+
+.hover-grow:hover {
+  transform: scale(1.5);
 }
 
 .incrementButton{
