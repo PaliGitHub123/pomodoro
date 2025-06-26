@@ -6,7 +6,6 @@
     <header class="palmodoro">Palmodoro</header>
     <div class="components-center">
       <div class="left">
-        <TimerHeader/>
         <div class="incrementUpButtons">
           <Vertical_IncrementButton @incrementUp="incrementMinutes"/>
           <Vertical_IncrementButton @incrementUp="incrementSeconds"/>
@@ -31,7 +30,6 @@ import {onMounted, ref} from 'vue'
 import PomodoroTimer from './components/PomodoroTimer.vue'
 import RestartButton from './components/RestartButton.vue'
 import StartStopButton from "./components/StartStopButton.vue"
-import TimerHeader from "./components/TimerHeader.vue"
 import Vertical_IncrementButton from "@/components/Vertical_IncrementButton.vue";
 
 // timer state
